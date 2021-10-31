@@ -3,6 +3,7 @@ name = "backend"
 version = "0.1.0"
 description = ""
 authors = ["P. Soumith Reddy <soumithreddypodduturi@gmail.com>"]
+repository = "https://github.com/soumith2105/vasv-stdin-backend"
 license = "MIT"
 
 [tool.black]
