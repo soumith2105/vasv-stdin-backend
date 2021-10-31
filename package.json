@@ -1,0 +1,22 @@
+{
+    "name": "backend",
+    "private": true,
+    "version": "1.0.0",
+    "description": "the-vasv-deets backend",
+    "author": "P. Soumith Reddy",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/soumith2105/the-vasv-deets.git"
+    },
+    "scripts": {
+        "killports": "kill -9 $(lsof -ti tcp:8000,8001) || echo \"No ports active\" ",
+        "lint": "poetry run black . && poetry run flake8",
+        "manage": "poetry run python manage.py",
+        "migrate": "poetry run python manage.py makemigrations && poetry run python manage.py migrate",
+        "prepare": "if [ ! -d \".venv\" ]; then virtualenv .venv; fi && poetry install",
+        "resetdb": "rm db.sqlite3 && yarn migrate",
+        "server": "./runserver.sh",
+        "shell": "poetry run python manage.py shell"
+    }
+}

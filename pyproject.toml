@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "backend"
+version = "0.1.0"
+description = ""
+authors = ["P. Soumith Reddy <soumithreddypodduturi@gmail.com>"]
+license = "MIT"
+
+[tool.black]
+line-length = 120
+target-version = ['py39']
+include = '\.pyi?$'
+extend-exclude = '''
+^/package.json  # exclude a file named foo.py in the root of the project (in addition to the defaults)
+^/requirements.txt
+^/runserver.sh
+'''
+
+[tool.poetry.dependencies]
+python = "^3.9"
+Django = "^3.2.5"
+djangorestframework = "^3.12.4"
+aiohttp = "^3.7.4"
+django-cors-headers = "^3.7.0"
+bs4 = "^0.0.1"
+channels = "^3.0.4"
+lxml = "^4.6.3"
+vasvscrapper = "^0.0.2-alpha.9"
+
+[tool.poetry.dev-dependencies]
+black = "^21.6b0"
+flake8 = "^3.9.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
