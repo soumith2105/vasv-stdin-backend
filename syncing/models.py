@@ -2,7 +2,11 @@ from django.db import models
 
 from semesters.models import Semester
 from students.models import Student
-from syncing.utilities.status_codes import FailedSyncStatusCodes, SignupStatusCodes, SyncStatusCodes
+from syncing.utilities.status_codes import (
+    FailedSyncStatusCodes,
+    SignupStatusCodes,
+    SyncStatusCodes,
+)
 
 
 class Sync(models.Model):

@@ -55,10 +55,16 @@ async def student_sync(roll_number, password, isSyncing, message):
             attendance_sync_list, result_sync_list = await check_semesters_to_update(existing_data, data["semesters"])
 
         result_sequences = await result_function(
-            semesters=result_sync_list, student=student, branch=data["branch"], message=message
+            semesters=result_sync_list,
+            student=student,
+            branch=data["branch"],
+            message=message,
         )
         attendance_sequences = await attendance_function(
-            semesters=attendance_sync_list, student=student, branch=data["branch"], message=message
+            semesters=attendance_sync_list,
+            student=student,
+            branch=data["branch"],
+            message=message,
         )
 
         return [*result_sequences, *attendance_sequences]

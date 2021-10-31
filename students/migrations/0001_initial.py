@@ -14,9 +14,20 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name="Student",
             fields=[
-                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
                 ("password", models.CharField(max_length=128, verbose_name="password")),
-                ("last_login", models.DateTimeField(blank=True, null=True, verbose_name="last login")),
+                (
+                    "last_login",
+                    models.DateTimeField(blank=True, null=True, verbose_name="last login"),
+                ),
                 ("roll_number", models.CharField(max_length=15, unique=True)),
                 ("name", models.CharField(max_length=300)),
                 ("current_year", models.IntegerField(default=1)),
@@ -26,8 +37,14 @@ class Migration(migrations.Migration):
                 ("current_status", models.CharField(default="Studying", max_length=30)),
                 ("std_pass", models.CharField(max_length=10)),
                 ("is_admin", models.BooleanField(default=False)),
-                ("cgpa", models.CharField(blank=True, default="NA", max_length=5, null=True)),
-                ("last_refreshed", models.DateTimeField(default=django.utils.timezone.now)),
+                (
+                    "cgpa",
+                    models.CharField(blank=True, default="NA", max_length=5, null=True),
+                ),
+                (
+                    "last_refreshed",
+                    models.DateTimeField(default=django.utils.timezone.now),
+                ),
             ],
             options={
                 "abstract": False,

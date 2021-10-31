@@ -6,7 +6,7 @@ from django.core.asgi import get_asgi_application
 
 from news.urls import websockets_urlpatterns as news_urlpatterns
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "vasv-stdin-backend.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "backend.settings")
 
 application = ProtocolTypeRouter(
     {

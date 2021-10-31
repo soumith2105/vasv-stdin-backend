@@ -16,7 +16,15 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name="Subject",
             fields=[
-                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
                 ("name", models.CharField(max_length=20)),
                 ("full_name", models.CharField(blank=True, max_length=100, null=True)),
                 ("lecturer", models.CharField(blank=True, max_length=150, null=True)),
@@ -32,7 +40,15 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name="SubjectBlock",
             fields=[
-                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
                 ("total", models.IntegerField(default=0)),
                 ("present", models.IntegerField(default=0)),
                 ("absent", models.IntegerField(default=0)),
@@ -57,11 +73,27 @@ class Migration(migrations.Migration):
                 ("ext_grade", models.CharField(default="NA", max_length=3)),
                 ("ext_sub_credits", models.IntegerField(default=0)),
                 ("ext_grade_pts", models.IntegerField(default=0)),
-                ("semester", models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to="semesters.semester")),
-                ("subject", models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to="subjects.subject")),
+                (
+                    "semester",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="semesters.semester",
+                    ),
+                ),
+                (
+                    "subject",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="subjects.subject",
+                    ),
+                ),
             ],
             options={
-                "ordering": ["-semester__semester", "-semester__student__name", "subject__name"],
+                "ordering": [
+                    "-semester__semester",
+                    "-semester__student__name",
+                    "subject__name",
+                ],
             },
         ),
     ]

@@ -44,7 +44,10 @@ async def sequence_starter(message):
         tasks.append(
             asyncio.create_task(
                 student_sync(
-                    roll_number=student["roll_number"], password=student["std_pass"], isSyncing=True, message=message
+                    roll_number=student["roll_number"],
+                    password=student["std_pass"],
+                    isSyncing=True,
+                    message=message,
                 )
             )
         )
@@ -59,7 +62,10 @@ async def admin_sync(roll_number, semester_list, message):
     signup = await create_signup_for_student(roll_number, semester_list)
 
     res = await student_sync(
-        roll_number=signup.student.roll_number, password=signup.student.std_pass, isSyncing=False, message=message
+        roll_number=signup.student.roll_number,
+        password=signup.student.std_pass,
+        isSyncing=False,
+        message=message,
     )
     await gather_with_concurrency(res)
     message("Process Completed", "success")

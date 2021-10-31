@@ -33,7 +33,10 @@ async def fetch_attendance(semester, student, branch, message):
                 start_date=semester["start_date"],
                 end_date=semester["end_date"],
             )
-            message(f'✓ Attendance [{student.roll_number} {student.name} - Sem {semester["sem"]}]', "success")
+            message(
+                f'✓ Attendance [{student.roll_number} {student.name} - Sem {semester["sem"]}]',
+                "success",
+            )
 
         else:
             message(
@@ -41,7 +44,10 @@ async def fetch_attendance(semester, student, branch, message):
                 "error",
             )
     except Exception:
-        message(f'✕ Attendance [{student.roll_number} {student.name} - Sem {semester["sem"]}]', "error")
+        message(
+            f'✕ Attendance [{student.roll_number} {student.name} - Sem {semester["sem"]}]',
+            "error",
+        )
 
 
 async def attendance_function(semesters, student, branch, message):

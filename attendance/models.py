@@ -36,4 +36,8 @@ class Session(models.Model):
     end = models.CharField(max_length=20, blank=True, null=True)
 
     class Meta:
-        ordering = ["attendance__attendance_block__semester__student", "-attendance__date", "start"]
+        ordering = [
+            "attendance__attendance_block__semester__student",
+            "-attendance__date",
+            "start",
+        ]

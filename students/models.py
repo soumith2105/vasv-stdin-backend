@@ -40,7 +40,19 @@ def create_new_user(roll_number, password, admin=False):
         user.set_password(password)
         user.save()
 
-        subprocess.run(["poetry", "run", "python", "manage.py", "sync", "-sr", roll_number, "-sl", semester_list])
+        subprocess.run(
+            [
+                "poetry",
+                "run",
+                "python",
+                "manage.py",
+                "sync",
+                "-sr",
+                roll_number,
+                "-sl",
+                semester_list,
+            ]
+        )
 
     else:
         raise ValueError(user_data["status"])

@@ -70,7 +70,12 @@ def convert_attendance_list_to_dict(attendance_list):
 
 
 @database_sync_to_async
-def save_session(attendance_block: AttendanceBlock, semester: Semester, attendance_stats: dict, branch):
+def save_session(
+    attendance_block: AttendanceBlock,
+    semester: Semester,
+    attendance_stats: dict,
+    branch,
+):
     # getting all attendance objects currently available in db -> converted to dict
     attendance_dates_dict = convert_attendance_list_to_dict(
         Attendance.objects.filter(attendance_block=attendance_block)
@@ -233,7 +238,10 @@ def get_attendance_links_of_semester(student):
     results = Semester.objects.filter(student=student)
     final = []
     for i in range(len(results)):
-        obj = {"sem": results[i].semester, "link": AttendanceBlock.objects.get(semester=results[i]).link}
+        obj = {
+            "sem": results[i].semester,
+            "link": AttendanceBlock.objects.get(semester=results[i]).link,
+        }
         final.append(obj)
 
     return final

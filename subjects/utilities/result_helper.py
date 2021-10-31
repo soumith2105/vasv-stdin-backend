@@ -34,7 +34,10 @@ async def get_results(semester, student, branch, message):
                 current_status=current_status,
             )
             await get_signup_for_result(student=student, semester=semester_model)
-            message(f'✓ Results [{student.roll_number} {student.name} - Sem {semester["sem"]}]', "success")
+            message(
+                f'✓ Results [{student.roll_number} {student.name} - Sem {semester["sem"]}]',
+                "success",
+            )
         else:
             message(
                 f'✕ Results [{student.roll_number} {student.name} - Sem {semester["sem"]}({results["status"]})]',
@@ -42,7 +45,10 @@ async def get_results(semester, student, branch, message):
             )
 
     except asyncio.exceptions.CancelledError:
-        message(f'✕ Results [{student.roll_number} {student.name} - Sem {semester["sem"]}]', "error")
+        message(
+            f'✕ Results [{student.roll_number} {student.name} - Sem {semester["sem"]}]',
+            "error",
+        )
 
 
 async def result_function(semesters, student, branch, message):

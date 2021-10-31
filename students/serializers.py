@@ -35,10 +35,15 @@ class StudentDetailsSerializer(serializers.ModelSerializer):
 
 class StudentLoginSerializer(serializers.ModelSerializer):
     roll_number = serializers.CharField(
-        label="Roll Number", trim_whitespace=True, error_messages={"blank": ROLL_NUMBER_REQUIRED}
+        label="Roll Number",
+        trim_whitespace=True,
+        error_messages={"blank": ROLL_NUMBER_REQUIRED},
     )
     password = serializers.CharField(
-        label="Password", trim_whitespace=True, error_messages={"blank": PASSWORD_REQUIRED}, write_only=True
+        label="Password",
+        trim_whitespace=True,
+        error_messages={"blank": PASSWORD_REQUIRED},
+        write_only=True,
     )
 
     class Meta:

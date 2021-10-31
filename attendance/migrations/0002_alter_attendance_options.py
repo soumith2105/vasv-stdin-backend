@@ -12,6 +12,9 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AlterModelOptions(
             name="attendance",
-            options={"ordering": ["attendance_block__semester__student", "-date"], "verbose_name_plural": "Attendance"},
+            options={
+                "ordering": ["attendance_block__semester__student", "-date"],
+                "verbose_name_plural": "Attendance",
+            },
         ),
     ]

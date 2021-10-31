@@ -17,11 +17,25 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name="Semester",
             fields=[
-                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
                 ("semester", models.IntegerField()),
                 ("year", models.CharField(default="NA", max_length=15)),
-                ("result_link", models.URLField(default="http://vce.ac.in/", max_length=300)),
-                ("attendance_link", models.URLField(default="http://vce.ac.in/", max_length=300)),
+                (
+                    "result_link",
+                    models.URLField(default="http://vce.ac.in/", max_length=300),
+                ),
+                (
+                    "attendance_link",
+                    models.URLField(default="http://vce.ac.in/", max_length=300),
+                ),
                 ("start_date", models.DateField(auto_now_add=True)),
                 ("end_date", models.DateField(auto_now_add=True)),
                 ("int1_max", models.FloatField(default=0)),
@@ -56,7 +70,10 @@ class Migration(migrations.Migration):
                 ("sgpa", models.FloatField(blank=True, null=True)),
                 (
                     "student",
-                    models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL),
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
                 ),
             ],
             options={

@@ -19,7 +19,15 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name="Sync",
             fields=[
-                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
                 ("start_time", models.DateTimeField(auto_now_add=True)),
                 ("end_time", models.DateTimeField(auto_now_add=True)),
                 ("task_type", models.CharField(max_length=40)),
@@ -28,7 +36,8 @@ class Migration(migrations.Migration):
                 (
                     "status",
                     models.CharField(
-                        default=syncing.utilities.status_codes.SyncStatusCodes["IN_PROGRESS"], max_length=40
+                        default=syncing.utilities.status_codes.SyncStatusCodes["IN_PROGRESS"],
+                        max_length=40,
                     ),
                 ),
                 ("sync_per_cycle", models.IntegerField(default=16)),
@@ -37,26 +46,54 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name="Signup",
             fields=[
-                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
                 ("created_at", models.DateTimeField(auto_now_add=True)),
                 ("synced_at", models.DateTimeField(blank=True, null=True)),
                 ("status", models.BooleanField(default=False)),
-                ("logs", models.CharField(default="SIGNUP__NOT_YET_STARTED", max_length=40)),
+                (
+                    "logs",
+                    models.CharField(default="SIGNUP__NOT_YET_STARTED", max_length=40),
+                ),
                 (
                     "student",
-                    models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL),
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
                 ),
             ],
         ),
         migrations.CreateModel(
             name="FailedSync",
             fields=[
-                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
-                ("status", models.CharField(default="FAILED__SYNC_CORRUPT", max_length=40)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "status",
+                    models.CharField(default="FAILED__SYNC_CORRUPT", max_length=40),
+                ),
                 ("logs", models.CharField(max_length=100)),
                 (
                     "semester",
-                    models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to="semesters.semester"),
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="semesters.semester",
+                    ),
                 ),
             ],
         ),

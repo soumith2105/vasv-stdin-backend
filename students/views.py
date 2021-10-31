@@ -7,7 +7,11 @@ from rest_framework.status import HTTP_200_OK, HTTP_204_NO_CONTENT
 from rest_framework.views import APIView, Response
 
 from students.models import Student
-from students.serializers import StudentDetailsSerializer, StudentLoginSerializer, StudentSignupSerializer
+from students.serializers import (
+    StudentDetailsSerializer,
+    StudentLoginSerializer,
+    StudentSignupSerializer,
+)
 
 
 class StudentInfoAPIView(RetrieveAPIView):

@@ -65,7 +65,10 @@ class AttendanceAdmin(admin.ModelAdmin):
         "total",
     )
 
-    search_fields = ["attendance_block__semester__student__name", "attendance_block__semester__student__roll_number"]
+    search_fields = [
+        "attendance_block__semester__student__name",
+        "attendance_block__semester__student__roll_number",
+    ]
 
     list_filter = [
         "attendance_block__semester__semester",

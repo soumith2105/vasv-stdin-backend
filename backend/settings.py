@@ -79,9 +79,9 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "vasv-stdin-backend.wsgi.application"
+WSGI_APPLICATION = "backend.wsgi.application"
 
-ASGI_APPLICATION = "vasv-stdin-backend.routing.application"
+ASGI_APPLICATION = "backend.routing.application"
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases

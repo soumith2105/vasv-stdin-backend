@@ -1,6 +1,11 @@
 from django.urls import path
 
-from students.views import LoginUserAPIView, LogoutUserAPIView, StudentInfoAPIView, SignupUserAPIView
+from students.views import (
+    LoginUserAPIView,
+    LogoutUserAPIView,
+    StudentInfoAPIView,
+    SignupUserAPIView,
+)
 
 urlpatterns = [
     path("login/", LoginUserAPIView.as_view(), name="login"),

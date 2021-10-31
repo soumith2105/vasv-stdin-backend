@@ -3,8 +3,36 @@ name = "backend"
 version = "0.1.0"
 description = ""
 authors = ["P. Soumith Reddy <soumithreddypodduturi@gmail.com>"]
-repository = "https://github.com/soumith2105/vasv-stdin-backend"
 license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+Django = "^3.2.8"
+djangorestframework = "^3.12.4"
+django-cors-headers = "^3.10.0"
+aiohttp = "^3.7.4"
+vasvscrapper = "^0.0.2-alpha.9"
+channels = "^3.0.4"
+
+[tool.poetry.dev-dependencies]
+flake8 = "^4.0.1"
+black = "^21.9b0"
+pre-commit = "^2.15.0"
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+dj-shell = 'backend.scripts:django_shell'
+killports = 'backend.scripts:kill_ports'
+lint = 'backend.scripts:lint'
+manage = 'backend.scripts:manage'
+migrate = 'backend.scripts:migrate'
+reset-db = 'backend.scripts:reset_db'
+server = 'backend.scripts:server'
+
 
 [tool.black]
 line-length = 120
@@ -15,22 +43,3 @@ extend-exclude = '''
 ^/requirements.txt
 ^/runserver.sh
 '''
-
-[tool.poetry.dependencies]
-python = "^3.9"
-Django = "^3.2.5"
-djangorestframework = "^3.12.4"
-aiohttp = "^3.7.4"
-django-cors-headers = "^3.7.0"
-bs4 = "^0.0.1"
-channels = "^3.0.4"
-lxml = "^4.6.3"
-vasvscrapper = "^0.0.2-alpha.9"
-
-[tool.poetry.dev-dependencies]
-black = "^21.6b0"
-flake8 = "^3.9.2"
-
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"

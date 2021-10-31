@@ -17,7 +17,15 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name="Attendance",
             fields=[
-                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
                 ("date", models.DateField()),
                 ("present", models.IntegerField(default=0)),
                 ("absent", models.IntegerField(default=0)),
@@ -30,32 +38,59 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name="Session",
             fields=[
-                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
                 ("did_attend", models.BooleanField(null=True)),
                 ("start", models.CharField(blank=True, max_length=20, null=True)),
                 ("end", models.CharField(blank=True, max_length=20, null=True)),
                 (
                     "attendance",
                     models.ForeignKey(
-                        on_delete=django.db.models.deletion.CASCADE, related_name="sessions", to="attendance.attendance"
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="sessions",
+                        to="attendance.attendance",
                     ),
                 ),
                 (
                     "subject",
                     models.ForeignKey(
-                        on_delete=django.db.models.deletion.CASCADE, related_name="subject", to="subjects.subject"
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="subject",
+                        to="subjects.subject",
                     ),
                 ),
             ],
             options={
-                "ordering": ["attendance__attendance_block__semester__student", "-attendance__date", "start"],
+                "ordering": [
+                    "attendance__attendance_block__semester__student",
+                    "-attendance__date",
+                    "start",
+                ],
             },
         ),
         migrations.CreateModel(
             name="AttendanceBlock",
             fields=[
-                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
-                ("link", models.URLField(default="http://vceresults.in/", max_length=300)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "link",
+                    models.URLField(default="http://vceresults.in/", max_length=300),
+                ),
                 ("total", models.IntegerField(default=0)),
                 ("present", models.IntegerField(default=0)),
                 ("absent", models.IntegerField(default=0)),
@@ -63,7 +98,10 @@ class Migration(migrations.Migration):
                 ("updated_at", models.DateTimeField(auto_now=True)),
                 (
                     "semester",
-                    models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to="semesters.semester"),
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="semesters.semester",
+                    ),
                 ),
             ],
             options={
@@ -74,7 +112,9 @@ class Migration(migrations.Migration):
             model_name="attendance",
             name="attendance_block",
             field=models.ForeignKey(
-                on_delete=django.db.models.deletion.CASCADE, related_name="attendance", to="attendance.attendanceblock"
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="attendance",
+                to="attendance.attendanceblock",
             ),
         ),
     ]

@@ -102,7 +102,15 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name="SemesterBlock",
             fields=[
-                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
                 ("int1_max", models.FloatField(default=0)),
                 ("int1", models.FloatField(default=0)),
                 ("int2_max", models.FloatField(default=0)),
@@ -127,7 +135,10 @@ class Migration(migrations.Migration):
                 ("sgpa", models.FloatField(blank=True, null=True)),
                 (
                     "semester",
-                    models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to="semesters.semester"),
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="semesters.semester",
+                    ),
                 ),
             ],
             options={

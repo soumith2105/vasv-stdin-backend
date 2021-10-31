@@ -7,7 +7,10 @@ from subjects.models import Subject, SubjectBlock
 def save_subject_marks(semester, branch, subjects):
     subject_models = list(
         Subject.objects.filter(
-            semester=semester.semester, branch=branch, section=semester.student.section, year=semester.year
+            semester=semester.semester,
+            branch=branch,
+            section=semester.student.section,
+            year=semester.year,
         )
     )
 

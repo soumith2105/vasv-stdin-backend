@@ -15,11 +15,22 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name="News",
             fields=[
-                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
                 ("index", models.CharField(max_length=50)),
                 ("published_date", models.DateField()),
                 ("content", models.TextField()),
-                ("slug", models.SlugField(default=news.models.generate_id, unique=True)),
+                (
+                    "slug",
+                    models.SlugField(default=news.models.generate_id, unique=True),
+                ),
                 ("link", models.URLField(max_length=300)),
                 ("categories", models.CharField(blank=True, max_length=300, null=True)),
             ],
